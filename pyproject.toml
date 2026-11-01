@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whisper-srt-generator"
+version = "1.0.0"
+description = "Transcribe audio/video files with OpenAI Whisper and write SRT subtitles"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "itfx3035" }]
+requires-python = ">=3.8"
+dependencies = [
+    "openai-whisper>=20231117",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Repository = "https://github.com/itfx3035/whisper_srt_generator"
+
+[project.scripts]
+whisper_transcribe = "whisper_transcribe:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.setuptools]
+py-modules = ["whisper_transcribe"]
